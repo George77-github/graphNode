@@ -1,7 +1,7 @@
 const neo4j = require('neo4j-driver');
 
 // Connect to Neo4j
-const driver = neo4j.driver('neo4j+s://18d2d37e.databases.neo4j.io', neo4j.auth.basic('neo4j', 'Cz_ZYcEa1jgVGoA687ChC9LzuevMnPYZZMnaHAn6Joo'));
+const driver = neo4j.driver('neo4j+s://18d2d37e.databases.neo4j.io', neo4j.auth.basic('neo4j', 'password'));
 const session = driver.session();
 
 const getAllNodesAndRelationships = async () => {
