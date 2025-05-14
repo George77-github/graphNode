@@ -1,0 +1,35 @@
+CREATE (:Vehicle {name: 'VehicleTwin'});
+CREATE (:Vehicle {name: 'VehicleConfig'});
+CREATE (:Vehicle {name: 'Electrical'});
+CREATE (:Vehicle {name: 'Aggregate1'});
+CREATE (:Vehicle {name: 'Aggregate2'});
+CREATE (:Vehicle {name: 'DomainTwin'});
+CREATE (:Vehicle {name: 'BatteryTwin'});
+CREATE (:Vehicle {name: 'Attributes'});
+CREATE (:Vehicle {name: 'Dynamic'});
+CREATE (:Vehicle {name: 'real-time'});
+CREATE (:Vehicle {name: 'static'});
+
+MATCH (a:Vehicle {name: 'VehicleTwin'}),
+		(b:Vehicle {name: 'VehicleConfig'}),
+		(c:Vehicle {name: 'Electrical'}),
+		(d:Vehicle {name: 'Aggregate1'}),
+		(e:Vehicle {name: 'Aggregate2'}),
+		(f:Vehicle {name: 'DomainTwin'}),
+		(g:Vehicle {name: 'BatteryTwin'}),
+		(h:Vehicle {name: 'Attributes'}),
+		(i:Vehicle {name: 'Dynamic'}),
+		(j:Vehicle {name: 'real-time'}),
+		(k:Vehicle {name: 'static'})
+CREATE (a)-[:has_config]->(b),
+(b)-[:has_aggregate]->(c),
+(b)-[:has_aggregate]->(d),
+(b)-[:has_aggregate]->(e),
+(d)-[:has_twin]->(f),
+(e)-[:has_twin]->(f),
+(c)-[:has_twin]->(g),
+(f)-[:has_attributes]->(h),
+(g)-[:has_attributes]->(h),
+(h)-[:has_attributes]->(i),
+(h)-[:has_attributes]->(j),
+(h)-[:has_attributes]->(k);
